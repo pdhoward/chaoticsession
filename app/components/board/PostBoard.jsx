@@ -1,14 +1,25 @@
-import React, { PropTypes, Component } from 'react';
-import noop from 'lodash/noop';
-import flow from 'lodash/flow';
-import PostColumn from './PostColumn';
-import style from './PostBoard.scss';
-import classNames from 'classnames';
-import { connect } from 'react-redux';
-import { addPost, deletePost, like, unlike, editPost } from '../../state/posts';
-import icons from '../../constants/icons';
-import translate from '../../i18n/Translate';
-import { getLivePosts, getAIPosts, getTrainPosts, getCurrentUser } from '../../selectors';
+
+
+////////////////////////////////////////////////////////////////////////
+////////  ChaoticBots Bot Training Platform                    ////////
+///////   Pivot Point in Program Flow for UI Components based  ///////
+//////    Live: text stream, AI: Machine, Train: CSR           ///////
+//////////////////////////////////////////////////////////////////////
+
+import React, { PropTypes, Component }   from 'react';
+import noop                              from 'lodash/noop';
+import flow                              from 'lodash/flow';
+import PostColumn                        from './PostColumn';
+import PostWidget                        from '../widgetsLive/PostWidget';
+import style                             from './PostBoard.scss';
+import classNames                        from 'classnames';
+import { connect }                       from 'react-redux';
+import { addPost, deletePost,
+          like, unlike, editPost }       from '../../state/posts';
+import icons                             from '../../constants/icons';
+import translate                         from '../../i18n/Translate';
+import { getLivePosts, getAIPosts,
+         getTrainPosts, getCurrentUser } from '../../selectors';
 
 const stateToProps = state => ({
     currentUser: getCurrentUser(state),
@@ -31,7 +42,43 @@ class PostBoard extends Component {
         this.renderColumn = this.renderColumn.bind(this);
     }
 
+    componentDidMount(props) {
+      console.log(("--------Entered PostBoard---------"))
+    }
+
     renderColumn(postType) {
+
+    if (postType.type == 'Live') {
+        console.log("----------LIVE--------------")
+        console.log({props: this.props})
+        console.log({postType: postType})
+
+        return (
+          <div
+            className={classNames(style.column, style[postType.type], 'col-4-12')}
+            key={postType.type}
+          >
+          <PostWidget
+            currentUser={this.props.currentUser}
+            posts={this.props.livePosts}
+            type={'Live'}
+            icon={icons.sentiment_satisfied}
+            onAdd={this.props.addPost}
+            placeholder={this.props.strings.liveQuestion}
+            onDelete={this.props.deletePost}
+            onLike={this.props.like}
+            onUnlike={this.props.unlike}
+            onEdit={this.props.edit}
+          />
+          </div>
+        )}
+
+        else {
+
+        console.log("----------NOT LIVE--------------")
+        console.log({props: this.props})
+        console.log({postType: postType})
+
         return (
             <div
               className={classNames(style.column, style[postType.type], 'col-4-12')}
@@ -50,7 +97,7 @@ class PostBoard extends Component {
                   onEdit={this.props.edit}
                 />
             </div>
-        );
+        )};
     }
 
     render() {
