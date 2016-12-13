@@ -8,13 +8,13 @@ import { connect } from 'react-redux';
 import { addPost, deletePost, like, unlike, editPost } from '../../state/posts';
 import icons from '../../constants/icons';
 import translate from '../../i18n/Translate';
-import { getWellPosts, getNotWellPosts, getIdeasPosts, getCurrentUser } from '../../selectors';
+import { getLivePosts, getAIPosts, getTrainPosts, getCurrentUser } from '../../selectors';
 
 const stateToProps = state => ({
     currentUser: getCurrentUser(state),
-    wellPosts: getWellPosts(state),
-    notWellPosts: getNotWellPosts(state),
-    ideasPosts: getIdeasPosts(state)
+    livePosts: getLivePosts(state),
+    aiPosts: getAIPosts(state),
+    trainPosts: getTrainPosts(state)
 });
 
 const actionsToProps = dispatch => ({
@@ -54,22 +54,22 @@ class PostBoard extends Component {
     }
 
     render() {
-        const { strings, wellPosts, notWellPosts, ideasPosts } = this.props;
+        const { strings, livePosts, aiPosts, trainPosts } = this.props;
         const types = [{
-            type: 'well',
-            question: strings.wellQuestion,
+            type: 'Live',
+            question: strings.liveQuestion,
             icon: icons.sentiment_satisfied,
-            posts: wellPosts
+            posts: livePosts
         }, {
-            type: 'notWell',
-            question: strings.notWellQuestion,
+            type: 'AI',
+            question: strings.aiQuestion,
             icon: icons.sentiment_very_dissatisfied,
-            posts: notWellPosts
+            posts: aiPosts
         }, {
-            type: 'ideas',
-            question: strings.ideasQuestion,
+            type: 'Train',
+            question: strings.trainQuestion,
             icon: icons.lightbulb_outline,
-            posts: ideasPosts
+            posts: trainPosts
         }];
 
         return (
@@ -82,9 +82,9 @@ class PostBoard extends Component {
 
 PostBoard.propTypes = {
     currentUser: PropTypes.string,
-    wellPosts: PropTypes.array.isRequired,
-    notWellPosts: PropTypes.array.isRequired,
-    ideasPosts: PropTypes.array.isRequired,
+    livePosts: PropTypes.array.isRequired,
+    aiPosts: PropTypes.array.isRequired,
+    trainPosts: PropTypes.array.isRequired,
     addPost: PropTypes.func,
     deletePost: PropTypes.func,
     strings: PropTypes.object,
@@ -95,18 +95,18 @@ PostBoard.propTypes = {
 
 PostBoard.defaultProps = {
     currentUser: null,
-    wellPosts: [],
-    notWellPosts: [],
-    ideasPosts: [],
+    livePosts: [],
+    aiPosts: [],
+    trainPosts: [],
     addPost: noop,
     deletePost: noop,
     like: noop,
     unlike: noop,
     edit: noop,
     strings: {
-        notWellQuestion: 'What could be improved?',
-        wellQuestion: 'What went well?',
-        ideasQuestion: 'A brilliant idea to share?'
+        aiQuestion: 'Recommended by your Brand Bot',
+        liveQuestion: 'Your are Live!',
+        trainQuestion: 'Enter the preferred response'
     }
 };
 

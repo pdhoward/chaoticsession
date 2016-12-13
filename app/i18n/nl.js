@@ -18,15 +18,15 @@ export default {
         noContent: '(Dit bericht heeft geen inhoud)'
     },
     PostBoard: {
-        notWellQuestion: 'Wat kan er beter?',
-        wellQuestion: 'Wat ging goed?',
-        ideasQuestion: 'Een geweldig idee om te delen?'
+        aiQuestion: 'Wat kan er beter?',
+        liveQuestion: 'Wat ging goed?',
+        trainQuestion: 'Een geweldig idee om te delen?'
     },
     Clients: {
         header: 'Onze lieftallige deelnemers:'
     },
     Join: {
-        welcome: 'Welkom bij Retrospected',
+        welcome: 'Welkom bij chaotic',
         standardTab: {
             header: 'Maak een sessie',
             text: 'Klik hieronder en begin terug te denken:',
@@ -50,13 +50,13 @@ export default {
         noPosts: 'Er zijn geen punten om te tonen'
     },
     SessionName: {
-        defaultSessionName: 'Mijn Retrospective'
+        defaultSessionName: 'Mijn Chaotic Platform'
     },
     Invite: {
         inviteButton: 'Uitnodigen',
         dialog: {
-            title: 'Nodig mensen uit voor jou retrospective',
-            text: 'Stuur de mensen die je wil uitnodigen voor jou retrospected ' +
+            title: 'Nodig mensen uit voor jou Chaotic Platform',
+            text: 'Stuur de mensen die je wil uitnodigen voor jou chaotic ' +
                   'sessie gewoon de volgende url',
             copyButton: 'Kopieer URL naar klembord'
         }

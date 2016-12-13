@@ -18,15 +18,15 @@ export default {
         noContent: '(пусто)'
     },
     PostBoard: {
-        notWellQuestion: 'Что можно улучшить?',
-        wellQuestion: 'Что было не так?',
-        ideasQuestion: 'Другие хорошие идеи?'
+        aiQuestion: 'Что можно улучшить?',
+        liveQuestion: 'Что было не так?',
+        trainQuestion: 'Другие хорошие идеи?'
     },
     Clients: {
         header: 'Участники:'
     },
     Join: {
-        welcome: 'Добро пожаловать в Retrospected',
+        welcome: 'Добро пожаловать в chaotic',
         standardTab: {
             header: 'Новая ретроспектива',
             text: 'Нажмите, чтобы начать:',

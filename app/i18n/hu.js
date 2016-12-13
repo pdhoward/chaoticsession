@@ -18,15 +18,15 @@ export default {
         noContent: '(This post has no content)'
     },
     PostBoard: {
-        notWellQuestion: 'Mit lehetne jobban csinálni?',
-        wellQuestion: 'Mit ment jól?',
-        ideasQuestion: 'Van valami nagyszerű ötleted?'
+        aiQuestion: 'Mit lehetne jobban csinálni?',
+        liveQuestion: 'Mit ment jól?',
+        trainQuestion: 'Van valami nagyszerű ötleted?'
     },
     Clients: {
         header: 'Jelenleg itt van:'
     },
     Join: {
-        welcome: 'Üdv, ez itt a Retrospected',
+        welcome: 'Üdv, ez itt a chaotic',
         standardTab: {
             header: 'Ülés létrehozása',
             text: 'Kattints ide a kezdéshez:',
@@ -50,13 +50,13 @@ export default {
         noPosts: 'There are no posts to display'
     },
     SessionName: {
-        defaultSessionName: 'My Retrospective'
+        defaultSessionName: 'My Chaotic Platform'
     },
     Invite: {
         inviteButton: 'Invite',
         dialog: {
-            title: 'Invite people to your retrospective',
-            text: 'To invite people to your retrospected session, simply send them ' +
+            title: 'Invite people to your Chaotic Platform',
+            text: 'To invite people to your chaotic session, simply send them ' +
                   'the following URL',
             copyButton: 'Copy URL to Clipboard'
         }

@@ -1,5 +1,5 @@
 {
-  "name": "ChaoticChatter",
+  "name": "ChaoticSession",
   "version": "0.7.0",
   "description": "The training platform for cognitive bots",
   "main": "server.js",
@@ -8,7 +8,7 @@
     "npm": ">=3.0.0"
   },
   "scripts": {
-    "start-ui": "webpack-dev-server --progress --inline --hot",
+    "start-ui": "node dev-server.js",
     "start-server": "nodemon ./server",
     "startx": "cross-env NODE_ENV=development PORT=3000 nodemon ./server",
     "starty": "cross-env NODE_ENV=development PORT=8080 nodemon ./server",
@@ -91,13 +91,14 @@
   },
   "keywords": [
     "agile",
-    "retrospective",
-    "board",
+    "ChaoticBots",
+    "machine learning",
     "redux",
     "react",
     "universal",
     "socket.io",
-    "reselect",
+    "messaging platform",
+    "nodejs",
     "SPA",
     "single page application"
   ],

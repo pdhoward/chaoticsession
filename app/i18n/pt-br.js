@@ -18,15 +18,15 @@ export default {
         noContent: '(This post has no content)'
     },
     PostBoard: {
-        notWellQuestion: 'O que poderia ser melhorado?',
-        wellQuestion: 'O que deu certo?',
-        ideasQuestion: 'Compartilhar uma ideia brilhante?'
+        aiQuestion: 'O que poderia ser melhorado?',
+        liveQuestion: 'O que deu certo?',
+        trainQuestion: 'Compartilhar uma ideia brilhante?'
     },
     Clients: {
         header: 'Participando conosco agora:'
     },
     Join: {
-        welcome: 'Bem-vindo ao Retrospected',
+        welcome: 'Bem-vindo ao chaotic',
         standardTab: {
             header: 'Crie uma seção',
             text: 'Clique abaixo e inicie a restropectiva:',
@@ -50,13 +50,13 @@ export default {
         noPosts: 'There are no posts to display'
     },
     SessionName: {
-        defaultSessionName: 'My Retrospective'
+        defaultSessionName: 'My Chaotic Platform'
     },
     Invite: {
         inviteButton: 'Invite',
         dialog: {
-            title: 'Invite people to your retrospective',
-            text: 'To invite people to your retrospected session, simply send them ' +
+            title: 'Invite people to your Chaotic Platform',
+            text: 'To invite people to your chaotic session, simply send them ' +
                   'the following URL',
             copyButton: 'Copy URL to Clipboard'
         }

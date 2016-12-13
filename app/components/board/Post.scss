@@ -4,21 +4,21 @@ div.post {
     flex: 1 1 auto;
     transition: width 0.7s ease-out;
 
-    &.well {
+    &.live {
         [data-react-toolbox="card"] {
-            background-color: $color-well;
+            background-color: $color-live;
         }
     }
 
-    &.notWell {
+    &.ai {
         [data-react-toolbox="card"] {
-            background-color: $color-notWell;
+            background-color: $color-ai;
         }
     }
 
-    &.ideas {
+    &.train {
         [data-react-toolbox="card"] {
-            background-color: $color-ideas;
+            background-color: $color-train;
         }
     }
     .card {

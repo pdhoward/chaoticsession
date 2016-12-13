@@ -18,9 +18,9 @@ export default {
         noContent: '(Aucun contenu)'
     },
     PostBoard: {
-        notWellQuestion: 'Des améliorations ?',
-        wellQuestion: 'Qu\'est-ce qui s\'est bien passé ?',
-        ideasQuestion: 'Une bonne idée à partager ?'
+        aiQuestion: 'Des améliorations ?',
+        liveQuestion: 'Qu\'est-ce qui s\'est bien passé ?',
+        trainQuestion: 'Une bonne idée à partager ?'
     },
     Clients: {
         header: 'Nos invités du moment:'
@@ -50,13 +50,13 @@ export default {
         noPosts: 'Aucun post à afficher'
     },
     SessionName: {
-        defaultSessionName: 'Ma Retrospective'
+        defaultSessionName: 'Ma Chaotic Platform'
     },
     Invite: {
         inviteButton: 'Inviter',
         dialog: {
-            title: 'Invitez des participants à votre retrospective',
-            text: 'Pour inviter des participants à votre session retrospected, ' +
+            title: 'Invitez des participants à votre Chaotic Platform',
+            text: 'Pour inviter des participants à votre session chaotic, ' +
                   'envoyez leur le lien suivant',
             copyButton: 'Copier'
         }
