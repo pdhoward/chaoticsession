@@ -9,8 +9,9 @@
 import React, { PropTypes, Component }   from 'react';
 import noop                              from 'lodash/noop';
 import flow                              from 'lodash/flow';
-import PostColumn                        from './PostColumn';
+import PostTrain                         from '../widgetsTrain/PostTrain'
 import PostWidget                        from '../widgetsLive/PostWidget';
+import PostAI                            from '../widgetsAI/PostAI';
 import style                             from './PostBoard.scss';
 import classNames                        from 'classnames';
 import { connect }                       from 'react-redux';
@@ -73,9 +74,34 @@ class PostBoard extends Component {
           </div>
         )}
 
-        else {
 
-        console.log("----------NOT LIVE--------------")
+    if (postType.type == 'AI') {
+        console.log("------AI--------------")
+        console.log({props: this.props})
+        console.log({postType: postType})
+
+        return (
+            <div
+            className={classNames(style.column, style[postType.type], 'col-4-12')}
+            key={postType.type}
+            >
+            <PostAI
+              currentUser={this.props.currentUser}
+              posts={this.props.aiPosts}
+              type={'AI'}
+              icon={icons.sentiment_satisfied}
+              onAdd={this.props.addPost}
+              placeholder={this.props.strings.aiQuestion}
+              onDelete={this.props.deletePost}
+              onLike={this.props.like}
+              onUnlike={this.props.unlike}
+              onEdit={this.props.edit}
+            />
+            </div>
+              )}
+
+    if (postType.type == 'Train') {
+        console.log("-------TRAIN--------------")
         console.log({props: this.props})
         console.log({postType: postType})
 
@@ -84,18 +110,18 @@ class PostBoard extends Component {
               className={classNames(style.column, style[postType.type], 'col-4-12')}
               key={postType.type}
             >
-                <PostColumn
-                  currentUser={this.props.currentUser}
-                  posts={postType.posts}
-                  type={postType.type}
-                  icon={postType.icon}
-                  onAdd={this.props.addPost}
-                  placeholder={postType.question}
-                  onDelete={this.props.deletePost}
-                  onLike={this.props.like}
-                  onUnlike={this.props.unlike}
-                  onEdit={this.props.edit}
-                />
+            <PostTrain
+              currentUser={this.props.currentUser}
+              posts={this.props.trainPosts}
+              type={'Train'}
+              icon={icons.lightbulb_outline}
+              onAdd={this.props.addPost}
+              placeholder={this.props.strings.trainQuestion}
+              onDelete={this.props.deletePost}
+              onLike={this.props.like}
+              onUnlike={this.props.unlike}
+              onEdit={this.props.edit}
+            />
             </div>
         )};
     }

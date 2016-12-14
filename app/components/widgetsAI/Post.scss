@@ -1,0 +1,89 @@
+div.post {
+    margin:10px;
+
+    flex: 1 1 auto;
+    transition: width 0.7s ease-out;
+
+    &.live {
+        [data-react-toolbox="card"] {
+            background-color: $color-live;
+        }
+    }
+
+    &.ai {
+        [data-react-toolbox="card"] {
+            background-color: $color-ai;
+        }
+    }
+
+    &.train {
+        [data-react-toolbox="card"] {
+            background-color: $color-train;
+        }
+    }
+    .card {
+        width: 350px;
+        position: relative;
+
+        @media screen and (max-width: $xsmall) {
+            width: 100%;
+        }
+
+        div.actions {
+            button.like {
+                background-color: $color-like;
+                color: white;
+            }
+
+            button.like.disabled {
+                background-color: $color-like-secondary;
+            }
+
+            button.dislike {
+                background-color: $color-dislike;
+                color: white;
+            }
+            button.dislike.disabled {
+                background-color: $color-dislike-secondary;
+            }
+            button.agent {
+                background-color: $color-agent;
+                color: white;
+            }
+
+            button.agent.disabled {
+                background-color: $color-agent-secondary;
+            }
+
+            button.voice {
+                background-color: $color-mic;
+                color: white;
+            }
+            button.voice.disabled {
+                background-color: $color-mic-secondary;
+            }
+            button.escalate {
+                background-color: $color-escalate;
+                color: white;
+            }
+
+            button.escalate.disabled {
+                background-color: $color-escalate-secondary;
+            }
+
+            button.notes {
+                background-color: $color-notes;
+                color: white;
+            }
+            button.notes.disabled {
+                background-color: $color-notes-secondary;
+            }
+            button.deleteButton {
+                background-color: $palette-red-300;
+                color: white;
+            }
+        }
+    }
+
+
+}

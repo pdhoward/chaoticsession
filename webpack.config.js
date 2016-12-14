@@ -17,7 +17,7 @@ var output = {
 }
 
 var assetsLoaders = [
- { test: /\.css$/, loader: 'style!css' },
+            { test: /\.css$/, loader: 'style!css' },
             { test: /(\.jsx|\.js)$/,
               loader: 'babel',
               exclude: /node_modules/
@@ -30,15 +30,15 @@ var assetsLoaders = [
 ]
 
 var scssLoaderProd = [
-  { test: /(\.scss)$/, loader: ExtractTextPlugin.extract('style',
-          'css?sourceMap&modules&importLoaders=1&localIdentName' +
-          '=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap!toolbox') }
+          { test: /(\.scss)$/, loader: ExtractTextPlugin.extract('style',
+            'css?sourceMap&modules&importLoaders=1&localIdentName' +
+            '=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap!toolbox') }
 
 ]
 
 var scssLoaderDev = [
-  { test: /(\.scss)$/, loader: 'style!css?sourceMap&modules&importLoaders=1&' +
-      'localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap!toolbox' }
+          { test: /(\.scss)$/, loader: 'style!css?sourceMap&modules&importLoaders=1&' +
+            'localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap!toolbox' }
 ]
 
 

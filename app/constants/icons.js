@@ -1,4 +1,6 @@
 // All of this to avoid a pesky corporate firewall
+// Icons can be located at https://material.io/icons/
+// Click on an icon then select icon font
 
 export default {
     thumb_up: String.fromCharCode(0xE8DC),
@@ -18,5 +20,10 @@ export default {
     open_in_new: String.fromCharCode(0xE89E),
     question_answer: String.fromCharCode(0xE8AF),
     content_copy: String.fromCharCode(0xE14D),
-    group_add: String.fromCharCode(0xE7F0)
+    group_add: String.fromCharCode(0xE7F0),
+    add_notes: String.fromCharCode(0xE8CD),
+    chat: String.fromCharCode(0xE0B7),
+    phone: String.fromCharCode(0xE0CD),
+    mic: String.fromCharCode(0xE029),
+    notes: String.fromCharCode(0xE150)
 };

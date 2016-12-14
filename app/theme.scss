@@ -1,3 +1,8 @@
+
+// scss themes incprorated through webpack
+// color palette implements google material design
+// details can be found at https://github.com/react-toolbox/react-toolbox/blob/dev/components/_colors.scss
+
 $small: 700px;
 $xsmall: 400px;
 
@@ -9,6 +14,19 @@ $color-like: $palette-green-300 !default;
 $color-dislike: $palette-red-300 !default;
 $color-like-secondary: $palette-green-200 !default;
 $color-dislike-secondary: $palette-red-200 !default;
+
+$color-agent: $palette-green-300 !default;
+$color-agent-secondary: $palette-green-200 !default;
+
+$color-mic: $palette-blue-300 !default;
+$color-mic-secondary: $palette-blue-200 !default;
+
+$color-escalate: $palette-blue-300 !default;
+$color-escalate-secondary: $palette-blue-200 !default;
+
+$color-notes: $palette-blue-300 !default;
+$color-notes-secondary: $palette-blue-200 !default;
+
 
 //-- Color configuration
 $color-divider: $palette-grey-200 !default;

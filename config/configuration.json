@@ -3,6 +3,7 @@
     "GA_Enabled": false,
     "DB_Use_Mongo" : true,
     "DB_Mongo_URL": "mongodb://xio:chaotic@ds147777.mlab.com:47777/chaoticchatter",
+    "DB_Mongo_Agents_URL": "mongodb://xio:chaotic@ds133378.mlab.com:33378/chaoticagents",
     "Use_Anti_Spam": false,
     "PUB_KEY": "pub-c-fd7baf82-35ee-4889-9a36-560d0681eee6",
     "SUB_KEY": "sub-c-78144356-ac3b-11e6-a7bb-0619f8945a4f",
