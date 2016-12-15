@@ -9,7 +9,7 @@
 import React, { PropTypes, Component }   from 'react';
 import noop                              from 'lodash/noop';
 import flow                              from 'lodash/flow';
-import PostTrain                         from '../widgetsTrain/PostTrain'
+import PostChart                         from '../widgetsChart/PostChart'
 import PostWidget                        from '../widgetsLive/PostWidget';
 import PostAI                            from '../widgetsAI/PostAI';
 import style                             from './PostBoard.scss';
@@ -50,9 +50,6 @@ class PostBoard extends Component {
     renderColumn(postType) {
 
     if (postType.type == 'Live') {
-        console.log("----------LIVE--------------")
-        console.log({props: this.props})
-        console.log({postType: postType})
 
         return (
           <div
@@ -76,9 +73,6 @@ class PostBoard extends Component {
 
 
     if (postType.type == 'AI') {
-        console.log("------AI--------------")
-        console.log({props: this.props})
-        console.log({postType: postType})
 
         return (
             <div
@@ -100,7 +94,7 @@ class PostBoard extends Component {
             </div>
               )}
 
-    if (postType.type == 'Train') {
+    if (postType.type == 'Chart') {
         console.log("-------TRAIN--------------")
         console.log({props: this.props})
         console.log({postType: postType})
@@ -110,7 +104,7 @@ class PostBoard extends Component {
               className={classNames(style.column, style[postType.type], 'col-4-12')}
               key={postType.type}
             >
-            <PostTrain
+            <PostChart
               currentUser={this.props.currentUser}
               posts={this.props.trainPosts}
               type={'Train'}
@@ -139,7 +133,7 @@ class PostBoard extends Component {
             icon: icons.sentiment_very_dissatisfied,
             posts: aiPosts
         }, {
-            type: 'Train',
+            type: 'Chart',
             question: strings.trainQuestion,
             icon: icons.lightbulb_outline,
             posts: trainPosts
