@@ -1,42 +1,36 @@
 
-import React, { PropTypes } 		from 'react';
-import ReactDOM 								from 'react-dom';
-import noop 										from 'lodash/noop';
-import classNames 							from 'classnames';
-import translate 								from '../../i18n/Translate';
-import style 										from './Post.scss';
-import icons 										from '../../constants/icons';
+import React, { PropTypes } 							from 'react';
+import ReactDOM 													from 'react-dom';
+import { Card, CardText, CardActions }    from 'react-toolbox/lib/card';
+import md5                                from 'md5';
+import noop 															from 'lodash/noop';
+import classNames 												from 'classnames';
+import translate 													from '../../i18n/Translate';
+import style 															from './Post.scss';
+import icons 															from '../../constants/icons';
 
 
-const logData = (args) => {
-	console.log("--------------------")
-	console.log(JSON.stringify(args))
-}
-
-
-////////////////
-// COMPONENTS //
-////////////////
-
+const getGravatar = client => `https://www.gravatar.com/avatar/${md5(client)}?d=retro`;
 
 const Post = ({ currentUser, posts, type, icon, placeholder, onAdd, onDelete,
-                      onLike, onUnlike, onEdit }) => (
+                      onLike, onUnlike, onEdit }) => {
 
+      return (
 			<div className={classNames(style.Conversation)}>
-				<div className={classNames(style.header)}>
-					<Header name={currentUser} />
-				</div>
-				<div className={classNames(style.container)}>
+				<div className={classNames(style.chattitle)}>
+            <Header name={currentUser} />
+			  </div>
+        <div className={classNames(style.chat)}>
 					<Messages messages={posts} currentuser={currentUser} />
-				</div>
-			</div>
+			  </div>
+      </div>
+)}
 
-
-)
 
 const Header = ({ name }) => (
-			<div className={classNames(style.header)}>
-				<div> {name} </div>
+			<div className={classNames(style.chattitle, style.avatar)}>
+				<h1> {name} </h1>
+        <img src={getGravatar(name)} />
 			</div>
 )
 
@@ -47,11 +41,11 @@ class Messages extends React.Component {
 		var sender = 1
 		var viewerID = this.props.currentuser
 		var messages = this.props.messages.map(function(message, i) {
-				return <Message message={message.content} user={message.user==viewerID ? 'you' : message.user} sender={message.user==viewerID ? 1 : 2} />;
+				return <Message message={message.content} />;
 		});
 
 		return (
-			<div className={classNames(style.Messages)}>
+			<div className={classNames(style.messages, style.messagecontent)}>
 				{messages}
 			</div>
 		);
@@ -68,29 +62,11 @@ class Message extends React.Component {
 	 }
 
 	render() {
-
-		if(this.props.sender === 1) {
 			return (
-				<div>
-				<div className={classNames(style.Message, style.ul)} ref={node => this.textmessage = node}>
-					<ul>{this.props.user}</ul>
-				</div>
-				<div className={classNames(style.Message, style.you)} ref={node => this.textmessage = node}>
+				<div className={classNames(style.message)} ref={node => this.textmessage = node}>
 					<span>{this.props.message}</span>
 				</div>
-			</div>
-			);
-		} else {
-			return (
-				<div className={classNames(style.Message, style.them)} ref={node => this.textmessage = node}>
-					<ul>{this.props.user}</ul>
-					<br></br>
-					<span>{this.props.message}</span>
-				</div>
-			);
-		}
-
-	}
+			)	}
 
 }
 

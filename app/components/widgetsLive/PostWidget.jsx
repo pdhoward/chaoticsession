@@ -23,13 +23,12 @@ const PostWidget = ({ currentUser, posts, type, icon, placeholder, onAdd, onDele
               onLIke={onLike}
               onUnlike={onUnlike}
               onEdit={onEdit}
-
          />
         <PostAdd
-          onAdd={text => onAdd(type, text)}
-          placeholder={placeholder}
-          icon={icon}
-        />
+             onAdd={text => onAdd(type, text)}
+             placeholder={placeholder}
+             icon={icon}
+            />
     </div>
 );
 
