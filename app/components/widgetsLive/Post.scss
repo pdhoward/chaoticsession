@@ -109,6 +109,34 @@ Chat
   flex-direction: column;
 }
 
+.title {
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 20px;
+  margin-left: 35px;
+  color: $white;
+}
+
+.avatar {
+  position: absolute;
+  z-index: 1;
+  top: 8px;
+  left: 9px;
+  border-radius: 30px;
+  width: 15px;
+  height: 15px;
+  overflow: hidden;
+  margin: 0;
+  padding: 2px;
+  border: 2px solid rgba(255, 255, 255, 0.24);
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 
 /*--------------------
 Chat Title
@@ -118,37 +146,10 @@ Chat Title
   height: 40px;
   position: relative;
   background: darken($grey, 40);
-  color: $white;
   text-transform: uppercase;
   text-align: left;
   padding: 10px 10px 10px 50px;
 
-  h1 {
-    font-weight: 500;
-    font-size: 20px;
-    margin: 8px 0;
-    margin-left: 35px;    
-    color: $white;
-  }
-
-  .avatar {
-    position: absolute;
-    z-index: 1;
-    top: 8px;
-    left: 9px;
-    border-radius: 30px;
-    width: 15px;
-    height: 15px;
-    overflow: hidden;
-    margin: 0;
-    padding: 2px;
-    border: 2px solid rgba(255, 255, 255, 0.24);
-
-    img {
-      width: 100%;
-      height: auto;
-    }
-  }
 }
 
 

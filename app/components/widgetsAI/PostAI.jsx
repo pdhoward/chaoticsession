@@ -7,12 +7,7 @@ import style                    from '../board/PostBoard.scss';
 
 const PostColumn = ({ currentUser, posts, type, icon, placeholder, onAdd, onDelete,
                       onLike, onUnlike, onEdit }) => (
-    <div>
-        <PostAdd
-          onAdd={text => onAdd(type, text)}
-          placeholder={placeholder}
-          icon={icon}
-        />
+    <div>      
         <div className={style.columnContent}>
             { posts.map((post, index) =>
                 <Post

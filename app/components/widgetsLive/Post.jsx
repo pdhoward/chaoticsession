@@ -28,8 +28,8 @@ const Post = ({ currentUser, posts, type, icon, placeholder, onAdd, onDelete,
 
 
 const Header = ({ name }) => (
-			<div className={classNames(style.chattitle, style.avatar)}>
-				<h1> {name} </h1>
+			<div className={classNames(style.title, style.avatar)}>
+				<title> {name} </title>
         <img src={getGravatar(name)} />
 			</div>
 )
