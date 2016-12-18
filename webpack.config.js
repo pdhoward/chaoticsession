@@ -13,7 +13,7 @@ var embedFileSize = 65536
 var output = {
   path: staticFolder,
   filename: 'app.js',
-  publicPath: '/'
+  publicPath: '/assets/'
 }
 
 var assetsLoaders = [

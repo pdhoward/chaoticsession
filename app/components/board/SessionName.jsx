@@ -1,14 +1,15 @@
-import React, { PropTypes, Component } from 'react';
-import noop from 'lodash/noop';
-import flow from 'lodash/flow';
-import { connect } from 'react-redux';
-import { getSessionName } from '../../selectors';
-import style from './SessionName.scss';
-import Input from 'react-toolbox/lib/input';
-import FontIcon from 'react-toolbox/lib/font_icon';
-import { renameSession } from '../../state/session';
-import translate from '../../i18n/Translate';
-import icons from '../../constants/icons';
+import React, { PropTypes, Component }    from 'react';
+import noop                               from 'lodash/noop';
+import flow                               from 'lodash/flow';
+import { connect }                        from 'react-redux';
+import { getSessionName }                 from '../../selectors';
+import style                              from './SessionName.scss';
+import Input                              from 'react-toolbox/lib/input';
+import FontIcon                           from 'react-toolbox/lib/font_icon';
+import { renameSession }                  from '../../state/session';
+import translate                          from '../../i18n/Translate';
+import icons                              from '../../constants/icons';
+import classNames 												from 'classnames';
 
 const stateToProps = state => ({
     sessionName: getSessionName(state)
@@ -34,15 +35,17 @@ class SessionName extends Component {
         const { sessionName, strings } = this.props;
 
         return (
+          <div className={classNames(style.sessionName)}>
             <div
-              className={style.sessionName}
+              className={classNames(style.position)}
               onClick={() => this.setState({ editMode: true }, () => this.refs.input.focus())}
             >
-                <span className={style.name}>
+                <span className={classNames(style.name)}>
                     { sessionName || strings.defaultSessionName }&nbsp;
-                    <FontIcon className={style.editIcon} value={icons.create} />
+                    <FontIcon className={classNames(style.editIcon)} value={icons.create} />
                 </span>
             </div>
+          </div>
         );
     }
 

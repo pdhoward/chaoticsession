@@ -1,20 +1,26 @@
 .sessionName {
-    .name {
-        color: $color-primary-dark;
-        font-size: $font-size-big;
+  margin-top: 2cm;
 
-        .editIcon {
-            color: $color-primary;
-            font-size: 0.8em;
+  .position {
+   height: 40px;
+
+  }
+  .name {
+   color: $color-primary-dark;
+   font-size: $font-size-big;
+
+    .editIcon {
+      color: $color-primary;
+      font-size: 0.8em;
         }
+  }
+
+  .edit {
+    width: 350px;
+    margin: auto;
+    position: relative;
+    top: -25px;
     }
 
-    .edit {
-        width: 350px;
-        margin: auto;
-        position: relative;
-        top: -25px;
-    }
 
-    height: 2px;
 }

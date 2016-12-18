@@ -28,10 +28,14 @@ const Post = ({ currentUser, posts, type, icon, placeholder, onAdd, onDelete,
 
 
 const Header = ({ name }) => (
-			<div className={classNames(style.title, style.avatar)}>
-				<title> {name} </title>
+    <div>
+			<div className={classNames(style.avatar)}>
         <img src={getGravatar(name)} />
-			</div>
+      </div>
+      <div className={classNames(style.title)}>
+        {name}
+      </div>    
+   </div>
 )
 
 class Messages extends React.Component {
