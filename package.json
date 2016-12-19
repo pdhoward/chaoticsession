@@ -10,7 +10,7 @@
   "scripts": {
     "start-ui": "node dev-server.js",
     "start-server": "nodemon ./server",
-    "startx": "cross-env NODE_ENV=development PORT=3000 nodemon ./server",
+    "startx": "cross-env NODE_ENV=development PORT=4000 nodemon ./server",
     "starty": "cross-env NODE_ENV=development PORT=8080 nodemon ./server",
     "build": "cross-env NODE_ENV=production webpack -p --config webpack.config.js --progress --colors"
   },

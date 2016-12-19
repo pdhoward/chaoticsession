@@ -119,7 +119,7 @@ var production = Object.assign({
 }, commonConfig)
 
 var development = Object.assign({
-  port: 3000,
+  port: 4000,
   devtool: 'inline-source-map',
   debug: true,
   content: __dirname,
