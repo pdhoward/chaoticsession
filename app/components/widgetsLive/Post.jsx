@@ -34,7 +34,7 @@ const Header = ({ name }) => (
       </div>
       <div className={classNames(style.title)}>
         {name}
-      </div>    
+      </div>
    </div>
 )
 
@@ -45,9 +45,8 @@ class Messages extends React.Component {
 		var sender = 1
 		var viewerID = this.props.currentuser
 		var messages = this.props.messages.map(function(message, i) {
-				return <Message message={message.content} />;
-		});
-
+				return <Message message={message.content} user={message.user==viewerID ? 'TRAINER' : message.user} sender={message.user==viewerID ? 1 : 2} />;
+        });
 		return (
 			<div className={classNames(style.messages, style.messagecontent)}>
 				{messages}
@@ -66,11 +65,32 @@ class Message extends React.Component {
 	 }
 
 	render() {
-			return (
-				<div className={classNames(style.message)} ref={node => this.textmessage = node}>
-					<span>{this.props.message}</span>
-				</div>
-			)	}
+
+    if(this.props.sender === 1) {
+      return (
+        <div>
+        <div className={classNames(style.messages, style.tome)} ref={node => this.textmessage = node}>
+          <tome>{this.props.user}</tome>
+        </div>
+        <div className={classNames(style.message, style.messagepersonal)} ref={node => this.textmessage = node}>
+          <span>{this.props.message}</span>
+        </div>
+      </div>
+      );
+    } else {
+      return (
+        <div>
+        <div className={classNames(style.messages, style.toyou)} ref={node => this.textmessage = node}>
+          <toyou>{this.props.user}</toyou>
+        </div>
+        <div className={classNames(style.message, style.new)} ref={node => this.textmessage = node}>
+          <span>{this.props.message}</span>
+        </div>
+      </div>
+      );
+    }
+
+    }
 
 }
 

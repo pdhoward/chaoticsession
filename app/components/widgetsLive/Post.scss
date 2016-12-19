@@ -154,7 +154,6 @@ Chat Title
 
 }
 
-
 /*--------------------
 Messages
 --------------------*/
@@ -172,6 +171,17 @@ Messages
     height: 100%;
     width: 100%;
   }
+  &.tome {
+      font-size: 9px;
+      text-align: right;
+      color: $black;
+      }
+
+  &.toyou {
+      font-size: 9px;    
+      text-align: left;
+      color: $black;
+      }
 
 
   .message {
@@ -221,6 +231,7 @@ Messages
         height: auto;
       }
     }
+
 
     &.messagepersonal {
       float: right;
