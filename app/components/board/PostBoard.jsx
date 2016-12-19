@@ -95,9 +95,8 @@ class PostBoard extends Component {
               )}
 
     if (postType.type == 'Chart') {
-        console.log("-------TRAIN--------------")
-        console.log({props: this.props})
-        console.log({postType: postType})
+
+       console.log(("-------GETTING READY TO RENDER CHARTS---------"))
 
         return (
             <div
@@ -107,7 +106,7 @@ class PostBoard extends Component {
             <PostChart
               currentUser={this.props.currentUser}
               posts={this.props.trainPosts}
-              type={'Train'}
+              type={'Chart'}
               icon={icons.lightbulb_outline}
               onAdd={this.props.addPost}
               placeholder={this.props.strings.trainQuestion}

@@ -3,11 +3,13 @@
 
 import React, { PropTypes }     from 'react';
 import noop                     from 'lodash/noop';
-import Post                     from './Post';
 import PostAdd                  from '../board/PostAdd';
 import icons                    from '../../constants/icons';
 import style                    from '../board/PostBoard.scss';
-import {LineChart, BarChart, PieChart, Bar, Pie, Line, XAxis,
+import {ResponsiveContainer,
+        LineChart, BarChart,
+        PieChart, Bar, Pie,
+        Line, XAxis,
         YAxis, CartesianGrid,
         Tooltip, Legend}        from 'recharts';
 
@@ -37,8 +39,8 @@ const PostColumn = ({ currentUser, posts, type, icon, placeholder, onAdd, onDele
 
   return (
     <div>
-      <LineChart width={600} height={300} data={data}
-            margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+      <ResponsiveContainer minWidth={300} minHeight={300}>
+      <LineChart  width={600} height={300} data={data} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
        <XAxis dataKey="name"/>
        <YAxis/>
        <CartesianGrid strokeDasharray="3 3"/>
@@ -47,6 +49,15 @@ const PostColumn = ({ currentUser, posts, type, icon, placeholder, onAdd, onDele
        <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{r: 8}}/>
        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
       </LineChart>
+      </ResponsiveContainer>
+
+      <ResponsiveContainer minWidth={300} minHeight={300}>
+      <PieChart width={300} height={300}>
+        <Pie isAnimationActive={false} data={data01} cx={200} cy={200} outerRadius={80} fill="#8884d8" label/>
+        <Pie data={data02} cx={500} cy={200} innerRadius={40} outerRadius={80} fill="#82ca9d"/>
+        <Tooltip/>
+       </PieChart>
+      </ResponsiveContainer>
 
       <BarChart width={600} height={300} data={data}
             margin={{top: 5, right: 30, left: 20, bottom: 5}}>
@@ -58,13 +69,8 @@ const PostColumn = ({ currentUser, posts, type, icon, placeholder, onAdd, onDele
        <Bar dataKey="pv" fill="#8884d8" />
        <Bar dataKey="uv" fill="#82ca9d" />
       </BarChart>
-    
-      <PieChart width={800} height={400}>
-        <Pie isAnimationActive={false} data={data01} cx={200} cy={200} outerRadius={80} fill="#8884d8" label/>
-        <Pie data={data02} cx={500} cy={200} innerRadius={40} outerRadius={80} fill="#82ca9d"/>
-        <Tooltip/>
-       </PieChart>
     </div>
+
   )
 };
 
