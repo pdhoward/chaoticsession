@@ -67,11 +67,16 @@ const renderButton = (post, currentUser, name, icon, className, onClick) => {
     );
 };
 
-const Post = ({ post, currentUser, onEdit, onAdd, onLike, onUnlike, onDelete, strings }) => (
+const Post = ({ post, currentUser, onEdit, onAdd, onLike, onUnlike, onDelete, strings }) => {
+
+    console.log(">>>>>>>>>>>>>>>INSIDE WIDGETAI POST <<<<<<<<<<<<<<<<<");
+    console.log({post: post});
+
+  return (
     <div className={classNames(style.post, style[post.postType])}>
         <Card raised className={style.card}>
             <CardText>
-              {currentUser} > {post.content}
+              {post.user} > {post.content}
 
             </CardText>
             <CardText>
@@ -121,7 +126,7 @@ const Post = ({ post, currentUser, onEdit, onAdd, onLike, onUnlike, onDelete, st
             </CardActions>
         </Card>
     </div>
-);
+)};
 
 Post.propTypes = {
     post: PropTypes.object.isRequired,

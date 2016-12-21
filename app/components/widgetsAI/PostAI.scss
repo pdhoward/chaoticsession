@@ -1,0 +1,12 @@
+.board {
+    .column {
+      overflow-x: visible !important;
+      overflow-y: visible !important;
+        .columnContent {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+    }
+}

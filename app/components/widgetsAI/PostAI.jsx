@@ -3,12 +3,14 @@ import noop                     from 'lodash/noop';
 import Post                     from './Post';
 import PostAdd                  from '../board/PostAdd';
 import icons                    from '../../constants/icons';
-import style                    from '../board/PostBoard.scss';
+import style                    from './PostAI.scss';
+import classNames 							from 'classnames';
 
 const PostColumn = ({ currentUser, posts, type, icon, placeholder, onAdd, onDelete,
                       onLike, onUnlike, onEdit }) => (
-    <div>      
-        <div className={style.columnContent}>
+                        
+    <div className={classNames(style.column)}>
+        <div className={classNames(style.columnContent)}>
             { posts.map((post, index) =>
                 <Post
                   key={index}
