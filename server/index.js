@@ -18,6 +18,7 @@ import config         from '../config';
 import PubNub         from 'pubnub';
 import redis          from 'socket.io-redis';
 
+
 import { RECEIVE_POST, RECEIVE_BOARD, RECEIVE_DELETE_POST, RECEIVE_LIKE, RECEIVE_EDIT_POST,
     ADD_POST_SUCCESS, DELETE_POST, LIKE_SUCCESS, EDIT_POST,
     RECEIVE_CLIENT_LIST, RECEIVE_SESSION_NAME, JOIN_SESSION,
@@ -31,6 +32,7 @@ import { RECEIVE_POST, RECEIVE_BOARD, RECEIVE_DELETE_POST, RECEIVE_LIKE, RECEIVE
 const app = express();
 const httpServer = new http.Server(app);
 const io = socketIo(httpServer);
+
 const port = process.env.PORT || 8081;
 const htmlFile = process.env.NODE_ENV === 'production' ?
     path.resolve(__dirname, '..', 'assets', 'index.html') :
@@ -74,6 +76,7 @@ const testStore = {
 
       io.adapter(redis({host: 'localhost', port: 6379}));
 
+    
       ///////////////////////////////////////////////
       ////////        MAINLINE FUNCTIONS      ///////
       ///////////////////////////////////////////////
@@ -190,8 +193,15 @@ db().then(store => {
         }
     };
 
+    const chatAnalysis = (session, data, socket) => {
+        console.log({session: session});
+        console.log({data: data});
+    };
+
 
     // drives process via handles for socket and global network routines
+    // note RECEIVE_POST added to intercept text broadcasts from a user
+    // the process looks at the text and recommends a response via the command console
     const actions = [
         { type: ADD_POST_SUCCESS, handler: receivePost },
         { type: JOIN_SESSION, handler: joinSession },
@@ -200,7 +210,8 @@ db().then(store => {
         { type: LIKE_SUCCESS, handler: like },
         { type: EDIT_POST, handler: edit },
         { type: LOGIN_SUCCESS, handler: login },
-        { type: LEAVE_SESSION, handler: leave }];
+        { type: LEAVE_SESSION, handler: leave },
+        { type: RECEIVE_POST, handler: chatAnalysis }];
 
 
 
@@ -253,6 +264,7 @@ db().then(store => {
     app.get('/*', (req, res) => res.sendFile(htmlFile));
 
 
+
     /////////////////////////////////////////////////////
     ////////        MAINLINE SOCKET ACTIONS      ///////
     ////////////////////////////////////////////////////
@@ -263,13 +275,6 @@ db().then(store => {
         antiSpam(ip, () => {
             console.log(d() + b(' Connection: ') +
                         r('New user connected'), gr(socket.id), gr(ip));
-
-          io.on('time', function (data) {
-                      console.log(data);
-                  });
-          socket.on('time', function (data) {
-                      console.log(data);
-                  });
 
             actions.forEach(action => {
                 socket.on(action.type, data => {

@@ -28,7 +28,7 @@ export const init = store => {
     });
 
     // Each of these actions will be listened to from SocketIO,
-    // and will trigger a new client-side action when received
+    // and will trigger a new client-side action when received -- including via redis
     const actions = [
         RECEIVE_POST,
         RECEIVE_BOARD,
